@@ -5,14 +5,14 @@
     <div class="container">
       <h1 class="pt-3 pb-3">Персонажи Marvel</h1>
 <pre>characterIndex: {{characterIndex}}</pre>
-      <app-modal />
+      <app-modal :character="characters[characterIndex]" />
 
       <spinner />
 
       <div class="row">
         <div
-          v-for="(el, idx) in characters"
-          key="el:id"
+          v-for="(el, idx) in characters" 
+          :key="el.id"
           class="col-lg-4 col-md-6 col-sm-12"
         >
           <div class="card mb-3" style="max-width: 540px">
