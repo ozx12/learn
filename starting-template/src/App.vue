@@ -10,19 +10,19 @@
       <spinner />
 
       <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12">
+        <div v-for="el in characters" class="col-lg-4 col-md-6 col-sm-12">
           <div class="card mb-3" style="max-width: 540px">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
                   class="img-fluid rounded-start"
-                  src="http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b.jpg"
-                  alt="Человек-паук"
+                  :src="el.thumbnail"
+                  :alt="el.name"
                 />
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Человек-паук</h5>
+                  <h5 class="card-title">{{el.name}}</h5>
 
                   <button
                     type="button"
