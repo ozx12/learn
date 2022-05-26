@@ -4,13 +4,17 @@
 
     <div class="container">
       <h1 class="pt-3 pb-3">Персонажи Marvel</h1>
-     
+<pre>characterIndex: {{characterIndex}}</pre>
       <app-modal />
 
       <spinner />
 
       <div class="row">
-        <div v-for="el in characters" class="col-lg-4 col-md-6 col-sm-12">
+        <div
+          v-for="(el, idx) in characters"
+          key="el:id"
+          class="col-lg-4 col-md-6 col-sm-12"
+        >
           <div class="card mb-3" style="max-width: 540px">
             <div class="row g-0">
               <div class="col-md-4">
@@ -22,13 +26,14 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">{{el.name}}</h5>
+                  <h5 class="card-title">{{ el.name }}</h5>
 
                   <button
                     type="button"
                     class="btn btn-primary"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
+                    @click="characterIndex = idx"
                   >
                     Подробнее
                   </button>
@@ -69,9 +74,9 @@ export default {
     },
   },
   computed: {},
-  mounted(){
-      this.fetchCharacters()
-  }
+  mounted() {
+    this.fetchCharacters();
+  },
 };
 </script>
 
