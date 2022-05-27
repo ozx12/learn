@@ -4,15 +4,16 @@
 
     <div class="container">
       <h1 class="pt-3 pb-3">Персонажи Marvel</h1>
-      <pre>src:{{ search }}</pre>
+    
 
+   
       <app-modal :character="characters[characterIndex]" />
 
       <spinner v-if="loading" />
 
       <div class="row">
         <div
-          v-for="(el, idx) in сharacters"
+          v-for="(el, idx) in searchCharacters"
           :key="el.id"
           class="col-lg-4 col-md-6 col-sm-12"
         >
@@ -65,7 +66,7 @@ export default {
       loading: false,
       characters: [],
       characterIndex: 0,
-      value: "",
+      search: "",
     };
   },
   methods: {
@@ -81,7 +82,7 @@ export default {
   computed: {
     searchCharacters: function () {
       const { characters, search } = this;
-      return characters.filter(character => {
+      return characters.filter((character) => {
         return character.name.indexOf(search) !== -1;
       });
     },
