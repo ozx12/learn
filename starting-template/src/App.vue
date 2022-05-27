@@ -7,7 +7,7 @@
     
 
    
-      <app-modal :character="characters[characterIndex]" />
+      <app-modal :character="searchCharacters[characterIndex]" />
 
       <spinner v-if="loading" />
 
@@ -83,7 +83,7 @@ export default {
     searchCharacters: function () {
       const { characters, search } = this;
       return characters.filter((character) => {
-        return character.name.indexOf(search) !== -1;
+        return character.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
       });
     },
   },
